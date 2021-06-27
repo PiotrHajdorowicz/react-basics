@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Name from "./Name";
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [title, setTitle] = useState("Tytuł nowej strony");
+  useEffect(() => {
+    alert("Teraz był efekt!");
+  }, [title]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{title}</h1>
+      <button onClick={() => setTitle("Zmieniony tytuł strony")}>
+        Zmień tytuł
+      </button>
+      <Name name="Peter" />
     </div>
   );
 }
